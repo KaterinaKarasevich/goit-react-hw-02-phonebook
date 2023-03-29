@@ -1,58 +1,38 @@
-@import-normalize; /* bring in normalize.css styles */
+import styled from '@emotion/styled'
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
-.form {
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 300px;
-  border: 1px solid lightgrey;
+  border: 1px solid black;
   padding: 30px;
   margin: 20px;
- 
-}
 
-.form-group {
+`
+const FormGroup = styled.div`
    margin-bottom: 30px;
-}
+`
 
-.form-wrap {
+const FormWrap = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-}
-
-.form-wrap:last-child {
+  &:last-child {
   margin-bottom: 0;
 }
+`
 
-.form-label {
+const FormLabel = styled.span`
   text-align: left;
   margin-bottom: 4px;
   font-size: 18px;
   line-height: calc(14 / 12);
   letter-spacing: 0.01em;
+`
 
-}
-.form-file {
-  position: relative;
-}
-.form-input {
+const FormInput = styled.input`
 
-  border: 1px solid lightgrey;
+  border: 1px solid grey;
   border-radius: 4px;
   padding: 5px;
   padding-left: 15px;
@@ -61,17 +41,14 @@ code {
   font-size: 16px;
   line-height: calc(20 / 16);
   color: black;
-  transition: border-color 1000ms cubic-bezier(0.4, 0, 0.2, 1);;
+  transition: border-color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:focus,
+    &:hover {
+    border-color: blue;
+   }
+`
 
-}
-
-
-.form-input:focus,
-.form-input:hover {
-  border-color: blue;
-}
-
-.button {
+const Button = styled.button`
   width: 150px;
   font-weight: 700;
   font-size: 16px;
@@ -87,9 +64,10 @@ code {
   transition: background-color 1000ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-}
-
-.button:hover,
-.button:focus {
+  &:hover,
+  &:focus {
   background-color: blue;
-}
+  }
+`
+
+export { Form, FormGroup, FormWrap, FormLabel, FormInput, Button}
