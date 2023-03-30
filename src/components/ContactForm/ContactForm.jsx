@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; 
 import { Component } from "react";
 import { Form, FormGroup, FormWrap, FormLabel, FormInput, Button} from "./ContactForm.styled"
 export class ContactForm extends Component {
@@ -34,7 +35,6 @@ export class ContactForm extends Component {
               <FormLabel>Name</FormLabel>
 
                   <FormInput
-                    class="form-input"
                     type="text"
                     name="name"
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -49,7 +49,6 @@ export class ContactForm extends Component {
             <FormWrap>
               <FormLabel>Number</FormLabel>
                 <FormInput
-                    class="form-input"
                     type="tel"
                     name="number"
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -61,10 +60,13 @@ export class ContactForm extends Component {
               
             </FormWrap>
           </FormGroup>
-          <Button class="button" type="submit">Add contact</Button>
+          <Button type="submit">Add contact</Button>
         </Form>
  
         )
     }
 }
 
+ContactForm.propTypes = {
+    addContact: PropTypes.func.isRequired,   
+}

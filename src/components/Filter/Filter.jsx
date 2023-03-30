@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; 
 import React from "react";
 import { FilterInput, TitleFilter } from "./Filter.styled";
 
@@ -7,7 +8,6 @@ export const Filter = ({data, onChangeInputFilter}) => {
         <div>
             <TitleFilter> Find contacts by name</TitleFilter>
                 <FilterInput
-                    class="filter-input"
                     type="text"
                     name="name"
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -15,10 +15,12 @@ export const Filter = ({data, onChangeInputFilter}) => {
                         required
                     onChange={onChangeInputFilter}
                     value ={data}
-                    />
-                    
-            </div>
-
- 
+                    />        
+        </div>
         )
      }
+
+Filter.propTypes = {
+    data: PropTypes.string.isRequired,
+    onChangeInputFilter: PropTypes.func.isRequired,   
+}
